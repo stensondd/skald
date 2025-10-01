@@ -37,6 +37,7 @@ def render_key_image(deck, icon_filename):
 # SsG8vowl8cE Sith Fleet (Tense)
 # f089GGNtQYM Infiltration (Tension)
 # VhfmLIozp8k Andor (Tension)
+# YhkreSzRQts Hyperspace
 
 
 # Returns styling information for a key based on its position and state.
@@ -44,7 +45,7 @@ def get_key_style(deck, key, state):
     # Last button in the example application is the exit button.
     exit_key_index = deck.key_count() - 1
     
-    songs = ['qMFH8K0dhC8', 'cz2wR2CFtrU', '1XE5OuJmPuo', 'Zxp4XNPiYsU', 'GM5NnpFujf0','01e3zqWkSHQ', "JcS6VezinNg", 'IPT0jXvonyQ', 'wuGf1_e-btU', "SsG8vowl8cE", "f089GGNtQYM", 'VhfmLIozp8k']
+    songs = ['qMFH8K0dhC8', 'cz2wR2CFtrU', '1XE5OuJmPuo', 'Zxp4XNPiYsU', 'GM5NnpFujf0','01e3zqWkSHQ', "JcS6VezinNg", 'IPT0jXvonyQ', 'wuGf1_e-btU', "SsG8vowl8cE", "f089GGNtQYM", 'VhfmLIozp8k', 'YhkreSzRQts']
 
     if key == exit_key_index:
         name = "exit"
@@ -52,7 +53,7 @@ def get_key_style(deck, key, state):
     else:
         name = ""
         icon = "{}.png".format("Released")
-    if key < 12:
+    if key < 13:
         name = songs[key]
         icon = songs[key]+'-MQ.jpg'
 
@@ -163,7 +164,7 @@ if __name__ == "__main__":
         # Wait until all application threads have terminated (for this example,
         # this is when all deck handles are closed).
         for t in threading.enumerate():
-            if t is threading.currentThread():
+            if t is threading.current_thread():
                 continue
 
             if t.is_alive():
